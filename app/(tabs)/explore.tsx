@@ -1,102 +1,155 @@
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { StyleSheet, Image, Platform } from 'react-native';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  TextInput,
+  Picker,
+  TouchableOpacity,
+} from "react-native";
+import Image3 from "../../assets/images/Image3.png";
+import Image1 from "../../assets/images/Image1.png";
+import { Link } from "expo-router";
 
-import { Collapsible } from '@/components/Collapsible';
-import { ExternalLink } from '@/components/ExternalLink';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+const Explore = () => {
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [sex, setSex] = useState("");
 
-export default function TabTwoScreen() {
+  const handleNameChange = (text) => {
+    if (/^[a-zA-Z\s]*$/.test(text)) {
+      setName(text);
+    } else {
+      alert("Please enter only alphabetic characters and spaces.");
+    }
+  };
+
+  const handleAgeChange = (text) => {
+    if (/^\d*$/.test(text)) {
+      setAge(text);
+    } else {
+      alert("Please enter only numeric characters for age.");
+    }
+  };
+
+  const handleSexChange = (itemValue) => {
+    setSex(itemValue);
+  };
+
+  const handleSubmit = () => {
+    if (name.trim() === "") {
+      alert("Please enter a valid name.");
+      return;
+    }
+    if (age.trim() === "") {
+      alert("Please enter age.");
+      return;
+    }
+    if (sex === "") {
+      alert("Please select sex.");
+      return;
+    }
+
+    // console.log("Name:", name);
+    // console.log("Age:", age);
+    // console.log("Sex:", sex);
+  };
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={<Ionicons size={310} name="code-slash" style={styles.headerImage} />}>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Explore</ThemedText>
-      </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
-        <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
-        </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
-        <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
-        </ThemedText>
-      </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
-        </ThemedText>
-        <Image source={require('@/assets/images/react-logo.png')} style={{ alignSelf: 'center' }} />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Custom fonts">
-        <ThemedText>
-          Open <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText> to see how to load{' '}
-          <ThemedText style={{ fontFamily: 'SpaceMono' }}>
-            custom fonts such as this one.
-          </ThemedText>
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Light and dark mode components">
-        <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user's current color scheme is, and so you can adjust UI colors accordingly.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Animations">
-        <ThemedText>
-          This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful <ThemedText type="defaultSemiBold">react-native-reanimated</ThemedText> library
-          to create a waving hand animation.
-        </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
-      </Collapsible>
-    </ParallaxScrollView>
+    <ScrollView>
+      <View style={{ flex: 1, alignItems: "center", backgroundColor: "white" }}>
+        <Image source={Image3} />
+        <Image source={Image1} />
+      </View>
+      <View style={{ padding: 10, marginVertical: 10 }}>
+        <Text style={{ fontWeight: "500", fontSize: 17 }}>Name</Text>
+        <TextInput
+          style={{
+            height: 40,
+            borderColor: "gray",
+            borderWidth: 1,
+            padding: 10,
+            borderRadius: 10,
+            fontWeight: "400",
+          }}
+          value={name}
+          onChangeText={handleNameChange}
+        />
+        <Text style={{ fontWeight: "500", fontSize: 17, marginTop: 15 }}>
+          Age
+        </Text>
+        <TextInput
+          style={{
+            height: 40,
+            borderColor: "#888888",
+            borderWidth: 1,
+            padding: 10,
+            borderRadius: 10,
+            fontWeight: "400",
+            marginTop: 5,
+          }}
+          value={age}
+          onChangeText={handleAgeChange}
+          keyboardType="numeric"
+        />
+        <Text style={{ fontWeight: "500", fontSize: 17, marginTop: 15 }}>
+          Sex
+        </Text>
+        <Picker
+          selectedValue={sex}
+          onValueChange={handleSexChange}
+          style={{
+            height: 40,
+            borderColor: "#888888",
+            borderWidth: 1,
+            borderRadius: 10,
+            marginTop: 5,
+          }}
+          itemStyle={{ fontWeight: "300" }}
+        >
+          <Picker.Item label="Select" value="" />
+          <Picker.Item label="Male" value="Male" />
+          <Picker.Item label="Female" value="Female" />
+          <Picker.Item label="Other" value="Other" />
+        </Picker>
+      </View>
+      <View
+        style={{
+          alignItems: "center",
+          marginVertical: 10,
+          // overflow: "hidden",
+        }}
+      >
+        <Link href="/InformationTab">
+          <TouchableOpacity
+            style={{
+              width: 120,
+              backgroundColor: "#888888",
+              padding: 10,
+              borderRadius: 10,
+              alignItems: "center",
+            }}
+            onPress={handleSubmit}
+          >
+            <Text
+              style={{
+                color: "black",
+                fontWeight: "bold",
+                fontSize: 18,
+                // backgroundColor: "red",
+                overflow: "hidden",
+                // width: "50%",
+                // flexDirection: "column",
+              }}
+            >
+              Next
+            </Text>
+          </TouchableOpacity>
+        </Link>
+      </View>
+    </ScrollView>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-});
+export default Explore;
