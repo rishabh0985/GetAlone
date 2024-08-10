@@ -27,12 +27,10 @@ const OtpVerify = () => {
       newOtp[index] = value;
       setOtp(newOtp);
 
-      // Update border color
       const newBorderColors = [...borderColors];
       newBorderColors[index] = value ? "#85B5BF" : "#ccc";
       setBorderColors(newBorderColors);
 
-      // Automatically focus on the next input field if value is not empty
       if (value && index < otp.length - 1) {
         refs[index + 1].current.focus();
       }
@@ -53,7 +51,7 @@ const OtpVerify = () => {
       setError(false);
       setBorderColors(Array(6).fill("green"));
 
-      navigation.navigate("../OtpVerifyCode/VerifyingOtp");
+      navigation.navigate("../OtpVerifyCode/Verified");
     } else {
       setError(true);
       setBorderColors(otp.map((digit) => (digit === "" ? "red" : "#85B5BF")));

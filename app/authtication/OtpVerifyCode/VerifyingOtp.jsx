@@ -43,6 +43,8 @@ const VerifyingOtp = () => {
     }
   };
 
+  // const cheakButton = () => {};
+
   return (
     <ScrollView>
       <View>

@@ -82,7 +82,7 @@ const Verified = () => {
             Enter Your Email ID to receive One Time Password
           </Text>
         </View>
-        <View
+        {/* <View
           style={{
             flexDirection: "row",
             justifyContent: "center",
@@ -110,7 +110,7 @@ const Verified = () => {
               />
             </View>
           ))}
-        </View>
+        </View> */}
         <View
           style={{
             display: "flex",
@@ -120,9 +120,24 @@ const Verified = () => {
           }}
         >
           <TouchableOpacity>
-            <Link
+            {/* <Link
               href="../InvalidOtp"
               style={{
+                width: 218,
+                backgroundColor: "white",
+                borderRadius: 16,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                paddingVertical: 12,
+                paddingHorizontal: 12,
+                borderWidth: 2,
+                borderColor: "#85B5BF",
+              }}
+            > */}
+            <View
+              style={{
+                flexDirection: "row",
                 width: 218,
                 backgroundColor: "white",
                 borderRadius: 16,
@@ -137,28 +152,22 @@ const Verified = () => {
             >
               <View
                 style={{
-                  flexDirection: "row",
+                  width: "22px",
+                  height: "22px",
+                  backgroundColor: "#85B5BF",
+                  justifyContent: "center",
                   alignItems: "center",
+                  borderRadius: 4,
+                  marginRight: 8,
                 }}
               >
-                <View
-                  style={{
-                    width: "22px",
-                    height: "22px",
-                    backgroundColor: "#85B5BF",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    borderRadius: 4,
-                    marginRight: 8,
-                  }}
-                >
-                  <Icon name="check" size={13} color="#FEFEFF" />
-                </View>
-                <Text style={{ fontSize: "19px", color: "#85B5BF" }}>
-                  Verified
-                </Text>
+                <Icon name="check" size={13} color="#FEFEFF" />
               </View>
-            </Link>
+              <Text style={{ fontSize: "19px", color: "#85B5BF" }}>
+                Verified
+              </Text>
+            </View>
+            {/* </Link> */}
           </TouchableOpacity>
         </View>
         <View
@@ -174,7 +183,14 @@ const Verified = () => {
             Haven't received yet?{" "}
           </Text>
           <TouchableOpacity>
-            <Text style={{ color: "#4D7883" }}>Resend OTP</Text>
+            <Text
+              onPress={() => {
+                alert("Otp send successfully");
+              }}
+              style={{ color: "#4D7883" }}
+            >
+              Resend OTP
+            </Text>
           </TouchableOpacity>
         </View>
       </View>

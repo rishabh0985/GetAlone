@@ -104,7 +104,12 @@ const App = () => {
             <Text style={styles.checkboxLabel}> Keep me Logged in </Text>
           </View>
           <TouchableOpacity>
-            <Text style={styles.forgotPassword}>Forgot password</Text>
+            <Link
+              href={"../authtication/ForgotPasswordPages/ForgotPass"}
+              style={styles.forgotPassword}
+            >
+              Forgot Password
+            </Link>
           </TouchableOpacity>
         </View>
 
