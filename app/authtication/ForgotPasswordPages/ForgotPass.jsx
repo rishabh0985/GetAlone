@@ -44,10 +44,7 @@ const ForgotPass = () => {
             style={{
               fontSize: "20px",
               fontWeight: "700",
-              //   alignItems: "center",
               lineHeight: "22.44px",
-              //   width: "151px",
-              //   height: "22px",
               textAlign: "center",
             }}
           >
@@ -108,6 +105,7 @@ const ForgotPass = () => {
             text="Submit"
             color="#4D7883"
             href={"../ForgotPasswordPages/OtpForgotPass"}
+            ButtonStyle={{ borderRadius: "16px" }}
           />
         </View>
       </View>

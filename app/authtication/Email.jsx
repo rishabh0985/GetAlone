@@ -108,10 +108,13 @@ const App = () => {
         </View>
 
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={handleLogin}>
-            <Link href={"../authtication/LogInPage"} style={styles.buttonText}>
-              Log In
-            </Link>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              window.location.href = "../authtication/LogInPage";
+            }}
+          >
+            <Text style={styles.buttonText}>Log In</Text>
           </TouchableOpacity>
         </View>
 
