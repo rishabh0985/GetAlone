@@ -10,7 +10,7 @@ import {
 import { Link } from "expo-router";
 import Image3 from "../../assets/images/Image3.png";
 import Image1 from "../../assets/images/Image1.png";
-
+import Button from "../../components/Button";
 function profilePicture() {
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -49,69 +49,70 @@ function profilePicture() {
           }}
         />
       </View>
-      <Pressable onPress={() => {}}>
-        <View
-          style={{
-            marginTop: 40,
-            overflow: "hidden",
-            alignItems: "center",
-            height: 50,
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 15,
-              fontWeight: "600",
-              backgroundColor: "#2DB086",
-              height: "100%",
-              width: "24%",
-              color: "white",
-              margin: 5,
-              padding: 8,
-              borderRadius: 10,
-              textAlign: "center",
-            }}
-          >
-            📤 Upload Photo
-          </Text>
-        </View>
-      </Pressable>
+
       <View
         style={{
-          flex: 1,
-          justifyContent: "flex-end",
+          justifyContent: "center",
           alignItems: "center",
-          marginBottom: 20,
+          marginTop: "10px",
         }}
       >
-        <Link
-          href="../authtication/OtpVerifyCode/VerifyEmail"
-          style={{
-            width: "80%",
-            height: 50,
-            backgroundColor: "#1F1F1F",
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius: 10,
-            opacity: 0.4,
-            textAlign: "center",
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Text
+        <TouchableOpacity>
+          <View
             style={{
-              color: "white",
-              fontSize: 18,
-              fontWeight: "600",
+              width: 218,
+              backgroundColor: "#4D7883",
+              borderRadius: 16,
+              justifyContent: "center",
+              alignItems: "center",
+              paddingVertical: 12,
+              paddingHorizontal: 20,
             }}
           >
-            Verify E-mail
-          </Text>
-        </Link>
+            <Text style={{ fontSize: 16, color: "#FEFEFF" }}>
+              📤 Upload Photo
+            </Text>
+          </View>
+        </TouchableOpacity>
       </View>
+      <TouchableOpacity>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: "flex-end",
+            alignItems: "center",
+            marginTop: "300px",
+          }}
+        >
+          <Link
+            href="../authtication/OtpVerifyCode/VerifyEmail"
+            style={{
+              width: "80%",
+              height: 50,
+              backgroundColor: "#1F1F1F",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: 10,
+              opacity: 0.4,
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Text
+              style={{
+                color: "white",
+                fontSize: 18,
+                fontWeight: "600",
+              }}
+            >
+              Verify E-mail
+            </Text>
+          </Link>
+        </View>
+      </TouchableOpacity>
     </ScrollView>
   );
 }

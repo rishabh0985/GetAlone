@@ -11,6 +11,8 @@ import Image3 from "../../../assets/images/Image3.png";
 import ImageOtp from "../../../assets/svgtopng/ImageOtp.png";
 import { Link } from "expo-router";
 import Icon from "react-native-vector-icons/FontAwesome";
+// import Button from "../../../components/Button";
+// import Link from "expo-router";
 
 const Verified = () => {
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
@@ -82,35 +84,7 @@ const Verified = () => {
             Enter Your Email ID to receive One Time Password
           </Text>
         </View>
-        {/* <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "center",
-            marginTop: 20,
-          }}
-        >
-          {otp.map((value, index) => (
-            <View key={index} style={{ marginHorizontal: 5 }}>
-              <TextInput
-                ref={refs[index]}
-                style={{
-                  width: 40,
-                  height: 40,
-                  borderWidth: 1,
-                  borderColor: borderColors[index],
-                  textAlign: "center",
-                  fontSize: 18,
-                  borderRadius: 20, // Makes the input box circular
-                }}
-                maxLength={1}
-                keyboardType="numeric"
-                value={value}
-                onChangeText={(text) => handleOtpChange(text, index)}
-                onKeyPress={(e) => handleKeyPress(e, index)}
-              />
-            </View>
-          ))}
-        </View> */}
+
         <View
           style={{
             display: "flex",
@@ -120,21 +94,6 @@ const Verified = () => {
           }}
         >
           <TouchableOpacity>
-            {/* <Link
-              href="../InvalidOtp"
-              style={{
-                width: 218,
-                backgroundColor: "white",
-                borderRadius: 16,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                paddingVertical: 12,
-                paddingHorizontal: 12,
-                borderWidth: 2,
-                borderColor: "#85B5BF",
-              }}
-            > */}
             <View
               style={{
                 flexDirection: "row",
@@ -183,17 +142,15 @@ const Verified = () => {
             Haven't received yet?{" "}
           </Text>
           <TouchableOpacity>
-            <Text
-              onPress={() => {
-                alert("Otp send successfully");
-              }}
-              style={{ color: "#4D7883" }}
-            >
-              Resend OTP
-            </Text>
+            <Link href="../Email">
+              <Text style={{ color: "#85B5BF", fontWeight: "600" }}>
+                Log In
+              </Text>
+            </Link>
           </TouchableOpacity>
         </View>
       </View>
+      {/* <Button text="click me" ButtonStyle={{ backgroundColor: "pink" }} /> */}
     </ScrollView>
   );
 };

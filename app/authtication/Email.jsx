@@ -94,13 +94,7 @@ const App = () => {
               onClick={() => setIsChecked(!isChecked)}
               checkBoxColor="#4d7883"
             />
-            {/* <TextInput
-              // type="checkbox"
-              id="scales"
-              // name="scales"
-              checked
-              placeholder="Keep me logged in"
-            /> */}
+
             <Text style={styles.checkboxLabel}> Keep me Logged in </Text>
           </View>
           <TouchableOpacity>
@@ -115,7 +109,9 @@ const App = () => {
 
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.button} onPress={handleLogin}>
-            <Text style={styles.buttonText}>Log In</Text>
+            <Link href={"../authtication/LogInPage"} style={styles.buttonText}>
+              Log In
+            </Link>
           </TouchableOpacity>
         </View>
 

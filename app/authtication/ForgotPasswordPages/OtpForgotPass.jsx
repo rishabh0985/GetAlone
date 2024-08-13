@@ -11,7 +11,7 @@ import Image3 from "../../../assets/images/Image3.png";
 import ForgotPassword from "../../../assets/svgtopng/ForgotPassword.png";
 import Button from "../../../components/Button";
 
-const ForgotPass = () => {
+const OtpForgotPass = () => {
   const [email, setEmail] = useState("");
   return (
     <ScrollView>
@@ -66,53 +66,31 @@ const ForgotPass = () => {
             your E-mail
           </Text>
         </View>
-        <View style={{ display: "flex", gap: "5px", margin: "10px" }}>
-          <Text
-            style={{
-              fontWeight: "500",
-              paddingHorizontal: 15,
-              fontSize: "14px",
-            }}
-          >
-            E-mail ID
-          </Text>
-          <TextInput
-            style={{
-              height: 40,
-              borderColor: "#85B5BF",
-              borderWidth: 1,
-              marginBottom: 12,
-              paddingHorizontal: 10,
-              borderRadius: "16px",
-              //   margin: "10px",
-            }}
-            placeholder="abc@xyz.edu"
-            value={email}
-            onChangeText={setEmail}
-            keyboardType="email-address"
-            autoCapitalize="none"
-            placeholderTextColor="rgba(0, 0, 0, 0.5)"
-            // borderColor="#85B5BF"
-          />
-        </View>
+
+        {/* <View style={{ alignItems: "center" , }}> */}
+        <Button text="Submit" color="#171717" ButtonStyle={{}} />
+        {/* </View> */}
         <View
           style={{
-            width: "218px",
-            display: "flex",
-            margin: "auto",
-            borderRadius: "16px",
-            height: "50px",
+            flexDirection: "row",
+            gap: "4px",
+            // alignItems: "center",
+            justifyContent: "center",
+            // marginTop: "10px",
           }}
         >
-          <Button
-            text="Submit"
-            color="#4D7883"
-            href={"../ForgotPasswordPages/OtpForgotPass"}
-          />
+          <Text style={{ color: "#686868", fontSize: "14px" }}>
+            Already have an account?
+          </Text>
+          {/* <Link href="../authtication/Email"> */}
+          <TouchableOpacity>
+            <Text style={{ color: "#4D7883" }}>Login In</Text>
+          </TouchableOpacity>
+          {/* </Link> */}
         </View>
       </View>
     </ScrollView>
   );
 };
 
-export default ForgotPass;
+export default OtpForgotPass;

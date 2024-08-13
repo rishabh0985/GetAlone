@@ -24,36 +24,38 @@ const Button = ({
       onPress={() => {
         /* Add your href navigation logic here */
       }}
+      style={[styles.buttonContainer, ButtonStyle]}
     >
       {href ? (
         <Link href={href}>
-          <View style={[styles.buttonContainer, ButtonStyle]}>
-            <Text style={[styles.buttonText, ButtonTextStyle]}>{text}</Text>
-          </View>
+          <Text style={[styles.buttonText, ButtonTextStyle]}>{text}</Text>
         </Link>
       ) : (
-        <View style={[styles.buttonContainer, ButtonStyle]}>
-          <Text style={[styles.buttonText, ButtonTextStyle]}>{text}</Text>
-        </View>
+        <Text style={[styles.buttonText, ButtonTextStyle]}>{text}</Text>
       )}
     </TouchableOpacity>
   );
 };
 const styles = StyleSheet.create({
   buttonContainer: {
-    alignItems: "center",
-    backgroundColor: "#4d7883",
-    height: 45,
-    width: 218,
-    overflow: "hidden",
-    justifyContent: "center",
-    marginHorizontal: "35%",
+    display: "flex",
+    backgroundColor: "#4D7883",
     borderRadius: 7,
+    overflow: "hidden",
+    // height: "100%",
+    padding: 11,
+    // alignItems: "center",
+    // justifyContent: "center",
   },
   buttonText: {
     fontWeight: "500",
     fontSize: 15,
     color: "white",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 4,
+    width: "100%",
+    display: "flex",
   },
 });
 
